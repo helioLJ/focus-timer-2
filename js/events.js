@@ -46,20 +46,20 @@ export default function Events({ sound, timer, controls, theme }) {
     controls.minus()
   });
 
-  soundForest.addEventListener('click', function () {
-    sound.playSound(soundForest, floresta)
+  soundForest.addEventListener('click', function (event) {
+    sound.playSound(soundForest, floresta, event)
   });
 
-  soundRain.addEventListener('click', function () {
-    sound.playSound(soundRain, chuva)
+  soundRain.addEventListener('click', function (event) {
+    sound.playSound(soundRain, chuva, event)
   });
 
-  soundCoffe.addEventListener('click', function () {
-    sound.playSound(soundCoffe, cafeteria)
+  soundCoffe.addEventListener('click', function (event) {
+    sound.playSound(soundCoffe, cafeteria, event)
   });
 
-  soundFire.addEventListener('click', function () {
-    sound.playSound(soundFire, lareira)
+  soundFire.addEventListener('click', function (event) {
+    sound.playSound(soundFire, lareira, event)
   });
 
   forestInput.addEventListener('input', function () {

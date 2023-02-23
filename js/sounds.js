@@ -1,6 +1,10 @@
 export default function () {
 
-  function playSound(element, sound) {
+  function playSound(element, sound, event) {
+    if (event.target.type === "range") {
+      return
+    }
+
     if (!element.classList.contains('active-sound')) {
       sound.play()
       sound.volume = 0.5

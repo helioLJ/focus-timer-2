@@ -154,7 +154,6 @@ main {
   border-radius: 5px;
   width: 100%;
   background-color: var(--bg-input-range);
-  pointer-events: none;
 }
 
 .sounds button input::-webkit-slider-thumb {
@@ -167,12 +166,10 @@ main {
 
 .sounds button.active-sound input {
   background-color: var(--bg-input-range-hover);
-  pointer-events: all;
 }
 
 .sounds button.active-sound input::-webkit-slider-thumb {
   background-color: var(--bg-input-range-hover);
-  cursor: grab;
 }
 
 .themeButton {
