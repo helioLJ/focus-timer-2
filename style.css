@@ -5,19 +5,39 @@
 }
 
 :root {
-  --base-color: 100;
-
   --body-bg: hsla(0, 0%, 100%, 100%);
 
   --text-color: hsla(240, 6%, 21%, 100%);
+  --button-color: hsla(240, 6%, 21%, 100%);
   --button-hover: rgb(140, 140, 146);
 
-  --card-text: hsla(0, 0%, 100%, 100%);
+  --card-svg: hsla(240, 6%, 21%, 100%);
+  --card-svg-active: hsla(0, 0%, 100%, 1);
   --card-bg: hsla(240, 9%, 89%, 100%);
   --card-bg-hover: rgb(190, 190, 194);
   --card-bg-active: hsla(194, 97%, 31%, 100%);
 
+  --bg-input-range: hsla(240, 6%, 21%, 100%);
+  --bg-input-range-hover: hsla(0, 0%, 100%, 100%);
+
   font-size: 62.5%;
+}
+
+.dark-mode:root {
+  --body-bg: hsla(240, 5%, 7%, 1);
+
+  --text-color: hsla(0, 0%, 100%, 1);
+  --button-color: #C4C4CC;
+  --button-hover: rgb(140, 140, 146);
+
+  --card-svg: hsla(240, 7%, 78%, 1);
+  --card-svg-active: hsla(0, 0%, 100%, 1);
+  --card-bg: hsla(240, 6%, 17%, 1);
+  --card-bg-hover: rgb(190, 190, 194);
+  --card-bg-active: hsla(195, 74%, 15%, 1);
+  
+  --bg-input-range: hsla(0, 0%, 100%, 100%);
+  --bg-input-range-hover: hsla(0, 0%, 100%, 100%);
 }
 
 body {
@@ -31,7 +51,7 @@ body {
   display: grid;
   place-content: center;
 
-  padding: 4rem;
+  transition: all 150ms ease-in-out;
 }
 
 button {
@@ -49,11 +69,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(3rem, 3rem + 10vw, 19.2rem);;
+  gap: clamp(3rem, 3rem + 10vw, 19.2rem);
+  margin: 4rem;
 }
 
 .time span {
-  font-size: clamp(10rem, 1rem + 10vw ,12.6rem);
+  font-size: clamp(10rem, 1rem + 10vw, 12.6rem);
   line-height: 14.8rem;
 }
 
@@ -66,6 +87,7 @@ main {
 
 .buttons button svg path {
   transition: all 150ms ease-in-out;
+  fill: var(--button-color);
 }
 
 .buttons button:hover svg path {
@@ -75,7 +97,7 @@ main {
 .sounds {
   display: grid;
   grid-template-areas: "C1 C2"
-                         "C3 C4";
+    "C3 C4";
   gap: 3.2rem;
 }
 
@@ -99,9 +121,15 @@ main {
   background-color: var(--card-bg);
   border-radius: 2.4rem;
 
-  padding: 4.8rem;
+  padding: 2.4rem;
 
   transition: all 300ms ease-in-out;
+
+  width: 13.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
 .sounds button:hover {
@@ -112,8 +140,45 @@ main {
   background-color: var(--card-bg-active);
 }
 
+.sounds button svg path {
+  fill: var(--card-svg);
+}
+
 .sounds button.active-sound svg path {
-  fill: var(--card-text);
+  fill: var(--card-svg-active);
+}
+
+.sounds button input {
+  appearance: none;
+  height: 4px;
+  border-radius: 5px;
+  width: 100%;
+  background-color: var(--bg-input-range);
+  pointer-events: none;
+}
+
+.sounds button input::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  background-color: var(--bg-input-range);
+}
+
+.sounds button.active-sound input {
+  background-color: var(--bg-input-range-hover);
+  pointer-events: all;
+}
+
+.sounds button.active-sound input::-webkit-slider-thumb {
+  background-color: var(--bg-input-range-hover);
+  cursor: grab;
+}
+
+.themeButton {
+  position: absolute;
+  top: 6.4rem;
+  right: 6.4rem;
 }
 
 @media (max-width: 800px) {
@@ -127,6 +192,6 @@ main {
   }
 
   .sounds button {
-    padding: 4rem;
+    padding: 2.1rem;
   }
 }

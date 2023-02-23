@@ -1,8 +1,9 @@
-export default function() {
+export default function () {
 
   function playSound(element, sound) {
     if (!element.classList.contains('active-sound')) {
       sound.play()
+      sound.volume = 0.5
       sound.loop = true
       element.classList.add('active-sound')
     } else {
@@ -11,7 +12,12 @@ export default function() {
     }
   }
 
+  function setVolume(volume, sound) {
+    sound.volume = volume / 100
+  }
+
   return {
-    playSound
+    playSound,
+    setVolume
   }
 }

@@ -13,6 +13,12 @@ const buttonPause = document.querySelector('.pause');
 const buttonReset = document.querySelector('.reset');
 const buttonPlus = document.querySelector('.plus');
 const buttonMinus = document.querySelector('.minus');
+const forestInput = document.querySelector('.forestInput');
+const rainInput = document.querySelector('.rainInput');
+const coffeInput = document.querySelector('.coffeInput');
+const fireInput = document.querySelector('.fireInput');
+const buttonSun = document.querySelector('.sun');
+const buttonMoon = document.querySelector('.moon');
 
 export {
   soundForest,
@@ -30,4 +36,10 @@ export {
   buttonReset,
   buttonPlus,
   buttonMinus,
+  forestInput,
+  rainInput,
+  coffeInput,
+  fireInput,
+  buttonSun,
+  buttonMoon
 }

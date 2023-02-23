@@ -6,16 +6,18 @@ export default function Timer({
 }) {
 
   let timerOut
-  let defaultMinutes 
+  let defaultMinutes = "05"
 
   function saveDefaultMinutes() {
     defaultMinutes = minutesDisplay.textContent
-    console.log(defaultMinutes)
   }
 
   function reset() {
-    minutesDisplay.textContent = defaultMinutes
     clearTimeout(timerOut)
+    buttonPlay.classList.remove('hide')
+    buttonPause.classList.add('hide')
+    minutesDisplay.textContent = defaultMinutes <= 0 ? "05" : defaultMinutes
+    secondsDisplay.textContent = "00"
   }
 
   function stop() {
@@ -24,11 +26,9 @@ export default function Timer({
 
   function countdown() {
     timerOut = setTimeout(function () {
+
       if (Number(secondsDisplay.textContent) <= 0 && Number(minutesDisplay.textContent) <= 0) {
-        buttonPlay.classList.remove('hide')
-        buttonPause.classList.add('hide')
-        minutesDisplay.textContent = defaultMinutes
-        secondsDisplay.textContent = "00"
+        reset()
         alert("Acabou!")
         return
       }
