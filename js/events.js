@@ -19,6 +19,7 @@ export default function Events({ sound, timer, controls }) {
   buttonPlay.addEventListener('click', function () {
     controls.play()
     timer.countdown()
+    timer.saveDefaultMinutes()
   });
   
   buttonPause.addEventListener('click', function () {
@@ -28,7 +29,7 @@ export default function Events({ sound, timer, controls }) {
   
   buttonReset.addEventListener('click', function () {
     controls.reset()
-    timer.stop()
+    timer.reset()
   });
   
   buttonPlus.addEventListener('click', function () {
