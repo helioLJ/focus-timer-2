@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --base-color: 100;
+
+  --body-bg: hsla(0, 0%, 100%, 100%);
+
+  --text-color: hsla(240, 6%, 21%, 100%);
+  --button-hover: rgb(140, 140, 146);
+
+  --card-text: hsla(0, 0%, 100%, 100%);
+  --card-bg: hsla(240, 9%, 89%, 100%);
+  --card-bg-hover: rgb(190, 190, 194);
+  --card-bg-active: hsla(194, 97%, 31%, 100%);
+
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-color);
+
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+
+  height: 100vh;
+  display: grid;
+  place-content: center;
+
+  padding: 4rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(3rem, 3rem + 10vw, 19.2rem);;
+}
+
+.time span {
+  font-size: clamp(10rem, 1rem + 10vw ,12.6rem);
+  line-height: 14.8rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.buttons button svg path {
+  transition: all 150ms ease-in-out;
+}
+
+.buttons button:hover svg path {
+  fill: var(--button-hover);
+}
+
+.sounds {
+  display: grid;
+  grid-template-areas: "C1 C2"
+                         "C3 C4";
+  gap: 3.2rem;
+}
+
+.sounds button:nth-child(1) {
+  grid-area: C1;
+}
+
+.sounds button:nth-child(2) {
+  grid-area: C2;
+}
+
+.sounds button:nth-child(3) {
+  grid-area: C3;
+}
+
+.sounds button:nth-child(4) {
+  grid-area: C4;
+}
+
+.sounds button {
+  background-color: var(--card-bg);
+  border-radius: 2.4rem;
+
+  padding: 4.8rem;
+
+  transition: all 300ms ease-in-out;
+}
+
+.sounds button:hover {
+  background-color: var(--card-bg-hover);
+}
+
+.sounds button.active-sound {
+  background-color: var(--card-bg-active);
+}
+
+.sounds button.active-sound svg path {
+  fill: var(--card-text);
+}
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+
+  .timer {
+    text-align: center;
+    width: 90%;
+  }
+
+  .sounds button {
+    padding: 4rem;
+  }
+}
