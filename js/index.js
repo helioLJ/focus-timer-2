@@ -13,9 +13,7 @@ import {
 
 const timer = Timer({
   minutesDisplay,
-  secondsDisplay,
-  buttonPlay,
-  buttonPause
+  secondsDisplay
 })
 
 const controls = Controls({

@@ -1,23 +1,22 @@
 export default function Timer({
   minutesDisplay,
-  secondsDisplay,
-  buttonPlay,
-  buttonPause,
+  secondsDisplay
 }) {
 
   let timerOut
   let defaultMinutes = "05"
+  let isCountdownAlreadyPlayed = false
 
   function saveDefaultMinutes() {
-    defaultMinutes = minutesDisplay.textContent
+    isCountdownAlreadyPlayed ? "" : defaultMinutes = minutesDisplay.textContent
+    isCountdownAlreadyPlayed = true
   }
 
   function reset() {
-    clearTimeout(timerOut)
-    buttonPlay.classList.remove('hide')
-    buttonPause.classList.add('hide')
-    minutesDisplay.textContent = defaultMinutes <= 0 ? "05" : defaultMinutes
+    stop()
+    minutesDisplay.textContent = defaultMinutes <= 5 ? "05" : defaultMinutes
     secondsDisplay.textContent = "00"
+    isCountdownAlreadyPlayed = false
   }
 
   function stop() {
