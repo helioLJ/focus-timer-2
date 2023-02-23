@@ -18,6 +18,10 @@ export default function Timer({
     clearTimeout(timerOut)
   }
 
+  function stop() {
+    clearTimeout(timerOut)
+  }
+
   function countdown() {
     timerOut = setTimeout(function () {
       if (Number(secondsDisplay.textContent) <= 0 && Number(minutesDisplay.textContent) <= 0) {
@@ -30,7 +34,7 @@ export default function Timer({
       }
 
       if (Number(secondsDisplay.textContent) <= 0) {
-        secondsDisplay.textContent = 2
+        secondsDisplay.textContent = 60
         minutesDisplay.textContent = String(Number(minutesDisplay.textContent) - 1).padStart(2, "0")
       }
 
@@ -38,10 +42,6 @@ export default function Timer({
 
       countdown()
     }, 1000)
-  }
-
-  function stop() {
-    clearTimeout(timerOut)
   }
 
   return {
