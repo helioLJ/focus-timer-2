@@ -191,4 +191,9 @@ main {
   .sounds button {
     padding: 2.1rem;
   }
+
+  .themeButton {
+    top: 1.2rem;
+    right: 1.2rem;
+  }
 }
