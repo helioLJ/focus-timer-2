@@ -1,7 +1,7 @@
 
 # Focus Timer ⌛
 
-Favorite seus usuários prediletos do GitHub em uma só lista!
+Um temporizador estilo Pomodoro!
 
 ## Funcionalidades ⚙️
 
